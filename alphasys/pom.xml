@@ -1,0 +1,79 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
+                             https://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>br.com.alphasys</groupId>
+	<artifactId>alphasys</artifactId>
+	<version>1.0.0</version>
+	<packaging>war</packaging>
+
+	<properties>
+		<maven.compiler.source>17</maven.compiler.source>
+		<maven.compiler.target>17</maven.compiler.target>
+	</properties>
+
+	<dependencies>
+
+		<!-- JSF 2.3 (javax.faces) compatível com Tomcat 8.5 -->
+		<dependency>
+			<groupId>org.glassfish</groupId>
+			<artifactId>javax.faces</artifactId>
+			<version>2.3.9</version>
+		</dependency>
+
+		<!-- PrimeFaces 13 (compatível com JSF 2.3) -->
+		<dependency>
+			<groupId>org.primefaces</groupId>
+			<artifactId>primefaces</artifactId>
+			<version>13.0.0</version>
+		</dependency>
+
+		<!-- Hibernate Core -->
+		<dependency>
+			<groupId>org.hibernate.orm</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>6.4.1.Final</version>
+		</dependency>
+
+		<!-- MySQL Driver -->
+		<dependency>
+			<groupId>com.mysql</groupId>
+			<artifactId>mysql-connector-j</artifactId>
+			<version>8.3.0</version>
+		</dependency>
+
+		<!-- JSTL -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.2</version>
+		</dependency>
+
+		<!-- Servlet API (Tomcat fornece, incluir como provided) -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>4.0.1</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<!-- CDI Weld (necessário para @Inject, @Named, @SessionScoped etc) -->
+		<dependency>
+			<groupId>org.jboss.weld.servlet</groupId>
+			<artifactId>weld-servlet-shaded</artifactId>
+			<version>3.1.9.Final</version>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.inject</groupId>
+			<artifactId>javax.inject</artifactId>
+			<version>1</version>
+		</dependency>
+
+
+	</dependencies>
+
+</project>

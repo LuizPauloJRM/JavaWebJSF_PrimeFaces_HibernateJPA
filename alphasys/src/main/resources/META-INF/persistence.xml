@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence
+                                 http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd"
+	version="2.1">
+
+	<!-- Nome do PU usado no JPAUtil -->
+	<persistence-unit name="AlphaSysPU"
+		transaction-type="RESOURCE_LOCAL">
+
+		<!-- Provider do Hibernate -->
+		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+
+		<!-- Opção 1 — declarar entidades manualmente <class>br.com.alphasys.model.Usuario</class> 
+			<class>br.com.alphasys.model.Empresa</class> -->
+
+		<!-- Opção 2 — Scanning automático (recomendado) -->
+		<exclude-unlisted-classes>false</exclude-unlisted-classes>
+
+		<properties>
+			<!-- Dados de conexão -->
+			<property name="javax.persistence.jdbc.driver"
+				value="com.mysql.cj.jdbc.Driver" />
+			<property name="javax.persistence.jdbc.url"
+				value="jdbc:mysql://localhost:3306/alphasys?serverTimezone=UTC&amp;useTimezone=true&amp;allowPublicKeyRetrieval=true&amp;useSSL=false" />
+			<property name="javax.persistence.jdbc.user" value="root" />
+			<property name="javax.persistence.jdbc.password"
+				value="123456" />
+
+			<!-- Hibernate -->
+			<property name="hibernate.dialect"
+				value="org.hibernate.dialect.MySQL8Dialect" />
+			<property name="hibernate.hbm2ddl.auto" value="update" /> <!-- create | update | validate | none -->
+			<property name="hibernate.show_sql" value="true" />
+			<property name="hibernate.format_sql" value="true" />
+
+			<!-- Charset -->
+			<property name="hibernate.connection.useUnicode"
+				value="true" />
+			<property name="hibernate.connection.characterEncoding"
+				value="UTF-8" />
+
+		</properties>
+	</persistence-unit>
+</persistence>
