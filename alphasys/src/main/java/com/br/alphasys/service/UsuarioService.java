@@ -11,47 +11,45 @@ import com.br.alphasys.model.Usuario;
 @RequestScoped
 public class UsuarioService {
 
-    @Inject
-    private UsuarioDAO usuarioDAO;
+	@Inject
+	private UsuarioDAO usuarioDAO;
 
-    /**
-     * Salva ou atualiza um usuário.
-     * Regras de negócio podem ser aplicadas aqui.
-     */
-    public void salvar(Usuario usuario) {
-        if (usuario.getNome() == null || usuario.getNome().isBlank()) {
-            throw new RuntimeException("Nome do usuário é obrigatório.");
-        }
+	/**
+	 * Salva ou atualiza um usuário. Regras de negócio podem ser aplicadas aqui.
+	 */
+	public void salvar(Usuario usuario) {
+		if (usuario.getNome() == null || usuario.getNome().trim().isEmpty()) {
 
-        if (usuario.getEmail() == null || usuario.getEmail().isBlank()) {
-            throw new RuntimeException("Email do usuário é obrigatório.");
-        }
+		}
+		if (usuario.getEmail() == null || usuario.getEmail().trim().isEmpty()) {
+			throw new RuntimeException("Email do usuário é obrigatório.");
+		}
 
-        if (usuario.getId() == null) {
-            usuarioDAO.inserir(usuario);
-        } else {
-            usuarioDAO.atualizar(usuario);
-        }
-    }
+		if (usuario.getId() == null) {
+			usuarioDAO.inserir(usuario);
+		} else {
+			usuarioDAO.atualizar(usuario);
+		}
+	}
 
-    /**
-     * Excluir um usuário pelo objeto.
-     */
-    public void excluir(Usuario usuario) {
-        usuarioDAO.excluir(usuario);
-    }
+	/**
+	 * Excluir um usuário pelo objeto.
+	 */
+	public void excluir(Usuario usuario) {
+		usuarioDAO.excluir(usuario);
+	}
 
-    /**
-     * Buscar todos os usuários.
-     */
-    public List<Usuario> listar() {
-        return usuarioDAO.listar();
-    }
+	/**
+	 * Buscar todos os usuários.
+	 */
+	public List<Usuario> listar() {
+		return usuarioDAO.listar();
+	}
 
-    /**
-     * Buscar usuário por ID.
-     */
-    public Usuario buscarPorId(Long id) {
-        return usuarioDAO.buscarPorId(id);
-    }
+	/**
+	 * Buscar usuário por ID.
+	 */
+	public Usuario buscarPorId(Long id) {
+		return usuarioDAO.buscarPorId(id);
+	}
 }
